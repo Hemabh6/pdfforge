@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 
-const base = "https://pdfforge.tools";
+const base = "https://www.ihavepdf.com";
 
 const routes: { path: string; priority: number }[] = [
   { path: "/", priority: 1.0 },

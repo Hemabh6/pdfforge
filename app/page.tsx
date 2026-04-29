@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "PDFForge – Free Online PDF Tools | ilovepdf Alternative",
   description:
     "29 free PDF tools — merge, split, compress, convert, sign, protect, edit, OCR, and more. All 100% browser-based. No sign-up. Nothing uploaded.",
-  alternates: { canonical: "https://pdfforge.tools" },
+  alternates: { canonical: "https://www.ihavepdf.com" },
 };
 
 interface Tool {
@@ -95,7 +95,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: "PDFForge",
-  url: "https://pdfforge.tools",
+  url: "https://www.ihavepdf.com",
   description: "29 free PDF tools — merge, split, compress, convert, sign, protect, edit, and more. 100% browser-based.",
   applicationCategory: "UtilitiesApplication",
   operatingSystem: "Any",
