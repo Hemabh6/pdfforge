@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const tools = [
   { href: "/merge", label: "Merge PDFs" },
@@ -18,7 +18,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
-            <h2 className="text-white font-bold text-lg mb-3">PDFForge</h2>
+            <h2 className="text-white font-bold text-lg mb-3">IHavePDF</h2>
             <p className="text-sm leading-relaxed">
               Free, 100% browser-based PDF tools. Your files never leave your device —
               everything runs locally with zero uploads.
@@ -37,7 +37,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-white font-semibold mb-3">Why PDFForge?</h3>
+            <h3 className="text-white font-semibold mb-3">Why IHavePDF?</h3>
             <ul className="space-y-2 text-sm">
               <li>✅ 100% free — no hidden costs</li>
               <li>🔒 Files stay on your device</li>
@@ -48,7 +48,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-10 pt-6 text-center text-xs">
-          © {new Date().getFullYear()} PDFForge. All rights reserved. Built with privacy in mind.
+          © {new Date().getFullYear()} IHavePDF. All rights reserved. Built with privacy in mind.
         </div>
       </div>
     </footer>

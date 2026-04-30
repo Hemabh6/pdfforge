@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -77,13 +77,13 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl text-indigo-600 shrink-0" aria-label="PDFForge home">
+          <Link href="/" className="flex items-center gap-2 font-bold text-xl text-indigo-600 shrink-0" aria-label="IHavePDF home">
             <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <rect x="3" y="2" width="18" height="20" rx="2" fill="#4f46e5" opacity=".15"/>
               <rect x="3" y="2" width="18" height="20" rx="2" stroke="#4f46e5" strokeWidth="1.5"/>
               <path d="M7 7h10M7 11h10M7 15h6" stroke="#4f46e5" strokeWidth="1.5" strokeLinecap="round"/>
             </svg>
-            PDFForge
+            IHavePDF
           </Link>
 
           {/* Desktop nav */}

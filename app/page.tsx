@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "PDFForge – Free Online PDF Tools | ilovepdf Alternative",
+  title: "IHavePDF – Free Online PDF Tools | ilovepdf Alternative",
   description:
     "29 free PDF tools — merge, split, compress, convert, sign, protect, edit, OCR, and more. All 100% browser-based. No sign-up. Nothing uploaded.",
   alternates: { canonical: "https://www.ihavepdf.com" },
@@ -94,7 +94,7 @@ const allTools = categories.flatMap((c) => c.tools);
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "PDFForge",
+  name: "IHavePDF",
   url: "https://www.ihavepdf.com",
   description: "29 free PDF tools — merge, split, compress, convert, sign, protect, edit, and more. 100% browser-based.",
   applicationCategory: "UtilitiesApplication",
@@ -192,7 +192,7 @@ export default function HomePage() {
       {/* How it works */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-10">How PDFForge Works</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-10">How IHavePDF Works</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {[
               { step: "1", title: "Choose a tool", desc: "Pick from 29 PDF tools above — no account needed." },
@@ -217,12 +217,12 @@ export default function HomePage() {
           <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
           <div className="space-y-6">
             {[
-              { q: "Is PDFForge really free?", a: "Yes — 100% free, forever. No watermarks, no file size limits, no credit card required." },
+              { q: "Is IHavePDF really free?", a: "Yes — 100% free, forever. No watermarks, no file size limits, no credit card required." },
               { q: "Do my files get uploaded to a server?", a: "Never. All processing happens inside your browser using JavaScript. Your files never leave your device." },
-              { q: "How many tools does PDFForge have?", a: "29 tools across 6 categories: Organise, Convert, Edit, Optimise, Security, and Intelligence. Tools marked 'Soon' require server-side processing and are coming in a future update." },
+              { q: "How many tools does IHavePDF have?", a: "29 tools across 6 categories: Organise, Convert, Edit, Optimise, Security, and Intelligence. Tools marked 'Soon' require server-side processing and are coming in a future update." },
               { q: "Is there a file size limit?", a: "No artificial limit. Your browser's available memory is the only constraint, typically several hundred MB." },
-              { q: "Does it work on mobile?", a: "Yes — PDFForge is fully responsive and works on iOS and Android browsers without any app installation." },
-              { q: "Can I protect a PDF with a real password?", a: "Yes. PDFForge implements RC4-128 encryption (PDF Standard Security Handler Rev 3) entirely in your browser — the same standard used by Adobe Acrobat and other professional tools." },
+              { q: "Does it work on mobile?", a: "Yes — IHavePDF is fully responsive and works on iOS and Android browsers without any app installation." },
+              { q: "Can I protect a PDF with a real password?", a: "Yes. IHavePDF implements RC4-128 encryption (PDF Standard Security Handler Rev 3) entirely in your browser — the same standard used by Adobe Acrobat and other professional tools." },
               { q: "What's the difference between Flatten and Protect?", a: "Flatten converts interactive form fields into static page content (no more editable fields). Protect adds password encryption so the document requires a password to open or to change permissions." },
             ].map(({ q, a }) => (
               <div key={q} className="bg-white rounded-xl border border-gray-100 px-6 py-5 shadow-sm">
