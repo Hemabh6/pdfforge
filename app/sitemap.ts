@@ -49,7 +49,7 @@ const routes: { path: string; priority: number }[] = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map(({ path, priority }) => ({
-    url: `${base}${path}`,
+    url: path === "/" ? `${base}/` : `${base}${path}/`,
     lastModified: new Date(),
     changeFrequency: path === "/" ? "weekly" : ("monthly" as const),
     priority,
