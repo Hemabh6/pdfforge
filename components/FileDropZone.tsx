@@ -35,7 +35,7 @@ export default function FileDropZone({
       onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
       onDragLeave={() => setDragging(false)}
       onDrop={onDrop}
-      className={`drop-zone rounded-xl p-10 text-center cursor-pointer select-none ${dragging ? "drag-over" : ""}`}
+      className={`drop-zone rounded-xl p-6 sm:p-10 text-center cursor-pointer select-none ${dragging ? "drag-over" : ""}`}
       role="button"
       tabIndex={0}
       onKeyDown={(e) => e.key === "Enter" && inputRef.current?.click()}

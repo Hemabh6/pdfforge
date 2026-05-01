@@ -33,9 +33,14 @@ body {
   background: linear-gradient(135deg, #4f46e5, #7c3aed);
   color: #fff;
   border-radius: 0.5rem;
-  padding: 0.6rem 1.4rem;
+  padding: 0.75rem 1.5rem;
+  min-height: 44px;
   font-weight: 600;
+  font-size: 1rem;
   transition: opacity 0.15s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .btn-primary:hover { opacity: 0.9; }
 .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
