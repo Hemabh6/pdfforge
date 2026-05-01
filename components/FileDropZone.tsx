@@ -18,7 +18,9 @@ export default function FileDropZone({
 
   const handle = (files: FileList | null) => {
     if (!files) return;
-    const arr = Array.from(files).filter((f) => f.type === "application/pdf" || f.name.endsWith(".pdf"));
+    const arr = Array.from(files).filter(
+      (f) => f.type === "application/pdf" || f.name.toLowerCase().endsWith(".pdf") || f.type === ""
+    );
     if (arr.length) onFiles(arr);
   };
 
@@ -40,8 +42,11 @@ export default function FileDropZone({
         type="file"
         accept={accept}
         multiple={multiple}
-        className="hidden"
-        onChange={(e: ChangeEvent<HTMLInputElement>) => handle(e.target.files)}
+        className="sr-only"
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+          handle(e.target.files);
+          e.target.value = "";
+        }}
       />
       <div className="text-4xl mb-3">📄</div>
       <p className="text-gray-600 font-medium">{label}</p>
