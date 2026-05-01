@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import Link from "next/link";
+import ToolsSearch from "@/components/ToolsSearch";
 
 export const metadata: Metadata = {
   title: "IHavePDF – Free Online PDF Tools | ilovepdf Alternative",
@@ -130,44 +130,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* All Tools by category */}
+      {/* All Tools by category with search */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" aria-labelledby="tools-heading">
         <h2 id="tools-heading" className="text-3xl font-bold text-center text-gray-900 mb-3">
           All PDF Tools
         </h2>
-        <p className="text-center text-gray-500 mb-12">Pick a tool to get started — no account or download needed.</p>
-
-        <div className="space-y-14">
-          {categories.map((cat) => (
-            <div key={cat.label}>
-              <h3 className="text-base font-bold text-gray-500 uppercase tracking-widest mb-5 flex items-center gap-2">
-                <span>{cat.icon}</span> {cat.label}
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                {cat.tools.map((tool) => (
-                  <Link
-                    key={tool.href}
-                    href={tool.href}
-                    className="group relative bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 shadow-sm"
-                  >
-                    {tool.badge && (
-                      <span className="absolute top-2 right-2 text-[10px] font-bold bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full">
-                        {tool.badge}
-                      </span>
-                    )}
-                    <div className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br ${tool.color} text-white text-2xl mb-3 shadow-sm`}>
-                      {tool.icon}
-                    </div>
-                    <h4 className="font-bold text-gray-900 text-sm mb-1 group-hover:text-indigo-600 transition-colors leading-tight">
-                      {tool.title}
-                    </h4>
-                    <p className="text-gray-400 text-xs leading-relaxed">{tool.description}</p>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+        <p className="text-center text-gray-500 mb-8">Pick a tool to get started — no account or download needed.</p>
+        <ToolsSearch categories={categories} />
       </section>
 
       {/* Privacy callout */}
