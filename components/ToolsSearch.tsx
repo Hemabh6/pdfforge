@@ -25,6 +25,7 @@ function ToolCard({ tool }: { tool: Tool }) {
   return (
     <Link
       href={tool.href}
+      prefetch={false}
       className="group relative bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 shadow-sm"
     >
       {tool.badge && (
