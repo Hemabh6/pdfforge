@@ -67,6 +67,14 @@ export default function OrganizeClient() {
     setDragIdx(null); setDragOver(null);
   };
 
+  const moveUp = (i: number) => {
+    if (i === 0) return;
+    setPages((prev) => { const a = [...prev]; [a[i - 1], a[i]] = [a[i], a[i - 1]]; return a; });
+  };
+  const moveDown = (i: number) => {
+    setPages((prev) => { if (i >= prev.length - 1) return prev; const a = [...prev]; [a[i], a[i + 1]] = [a[i + 1], a[i]]; return a; });
+  };
+
   const save = async () => {
     if (!file) return;
     const activePages = pages.filter((p) => !p.deleted);
@@ -120,7 +128,11 @@ export default function OrganizeClient() {
 
           {pages.length > 0 && (
             <>
-              <p className="text-xs text-gray-500 mb-3">Drag to reorder · Rotate · Mark for deletion (red)</p>
+              <p className="text-xs text-gray-500 mb-3">
+                <span className="hidden sm:inline">Drag to reorder · </span>
+                <span className="sm:hidden">Use ↑ ↓ to reorder · </span>
+                Rotate · Mark for deletion (red)
+              </p>
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 mb-5">
                 {pages.map((entry, i) => (
                   <div
@@ -143,11 +155,18 @@ export default function OrganizeClient() {
                       {i + 1}
                     </div>
                     <div className="absolute top-1 right-1 flex flex-col gap-1">
-                      <button onClick={() => rotate(i, -90)} className="bg-white/90 hover:bg-white rounded text-xs w-5 h-5 flex items-center justify-center shadow" title="Rotate left">↺</button>
-                      <button onClick={() => rotate(i, 90)} className="bg-white/90 hover:bg-white rounded text-xs w-5 h-5 flex items-center justify-center shadow" title="Rotate right">↻</button>
-                      <button onClick={() => toggleDelete(i)} className={`rounded text-xs w-5 h-5 flex items-center justify-center shadow ${entry.deleted ? "bg-red-500 text-white" : "bg-white/90 hover:bg-red-50"}`} title={entry.deleted ? "Restore" : "Delete"}>
+                      <button onClick={() => rotate(i, -90)} className="bg-white/90 hover:bg-white rounded text-xs w-6 h-6 flex items-center justify-center shadow" title="Rotate left">↺</button>
+                      <button onClick={() => rotate(i, 90)} className="bg-white/90 hover:bg-white rounded text-xs w-6 h-6 flex items-center justify-center shadow" title="Rotate right">↻</button>
+                      <button onClick={() => toggleDelete(i)} className={`rounded text-xs w-6 h-6 flex items-center justify-center shadow ${entry.deleted ? "bg-red-500 text-white" : "bg-white/90 hover:bg-red-50"}`} title={entry.deleted ? "Restore" : "Delete"}>
                         {entry.deleted ? "↩" : "✕"}
                       </button>
+                    </div>
+                    {/* Mobile reorder buttons */}
+                    <div className="absolute top-1 left-1 flex flex-col gap-1 sm:hidden">
+                      <button onClick={() => moveUp(i)} disabled={i === 0}
+                        className="bg-white/90 rounded text-xs w-6 h-6 flex items-center justify-center shadow disabled:opacity-30">↑</button>
+                      <button onClick={() => moveDown(i)} disabled={i === pages.length - 1}
+                        className="bg-white/90 rounded text-xs w-6 h-6 flex items-center justify-center shadow disabled:opacity-30">↓</button>
                     </div>
                   </div>
                 ))}

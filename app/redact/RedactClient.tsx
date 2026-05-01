@@ -57,7 +57,7 @@ export default function RedactClient() {
     }
   };
 
-  const getCanvasPos = (e: React.MouseEvent) => {
+  const getCanvasPos = (e: React.PointerEvent) => {
     const canvas = canvasRef.current!;
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
@@ -68,12 +68,13 @@ export default function RedactClient() {
     };
   };
 
-  const onMouseDown = (e: React.MouseEvent) => {
+  const onPointerDown = (e: React.PointerEvent) => {
+    canvasRef.current?.setPointerCapture(e.pointerId);
     const pos = getCanvasPos(e);
     setStart(pos); setDrawing(true);
   };
 
-  const onMouseMove = (e: React.MouseEvent) => {
+  const onPointerMove = (e: React.PointerEvent) => {
     if (!drawing || !start) return;
     const pos = getCanvasPos(e);
     setPreviewRect({
@@ -84,7 +85,7 @@ export default function RedactClient() {
     });
   };
 
-  const onMouseUp = (e: React.MouseEvent) => {
+  const onPointerUp = (e: React.PointerEvent) => {
     if (!drawing || !start) return;
     setDrawing(false);
     const pos = getCanvasPos(e);
@@ -196,17 +197,17 @@ export default function RedactClient() {
 
               <p className="text-xs text-gray-500 mb-2">Draw rectangles over areas to redact. Click and drag.</p>
 
+              <p className="text-xs text-gray-400 mb-2">💡 On mobile: tap and drag your finger to draw a redaction box.</p>
               <div className="relative border border-gray-200 rounded-xl overflow-hidden mb-4" style={{ cursor: "crosshair" }}>
-                {/* Hidden img used as source for canvas drawing */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img ref={imgRef} src={thumbs[currentPage]} alt="" className="hidden" />
                 <canvas
                   ref={canvasRef}
-                  className="w-full"
-                  onMouseDown={onMouseDown}
-                  onMouseMove={onMouseMove}
-                  onMouseUp={onMouseUp}
-                  onMouseLeave={() => { if (drawing) setDrawing(false); setPreviewRect(null); }}
+                  className="w-full touch-none"
+                  onPointerDown={onPointerDown}
+                  onPointerMove={onPointerMove}
+                  onPointerUp={onPointerUp}
+                  onPointerCancel={() => { setDrawing(false); setPreviewRect(null); }}
                 />
               </div>
 
