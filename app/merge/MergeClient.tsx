@@ -150,19 +150,19 @@ export default function MergeClient() {
       {files.length > 0 && (
         <ul className="mt-5 space-y-2">
           {files.map((entry, i) => (
-            <li key={i} className={`border rounded-lg px-4 py-2 ${entry.locked ? "bg-amber-50 border-amber-200" : "bg-gray-50 border-gray-200"}`}>
-              <div className="flex items-center gap-3">
+            <li key={i} className={`border rounded-lg px-3 py-2 ${entry.locked ? "bg-amber-50 border-amber-200" : "bg-gray-50 border-gray-200"}`}>
+              <div className="flex items-center gap-2">
                 <span className="text-gray-400 text-sm w-5 shrink-0">{i + 1}.</span>
-                <span className="flex-1 text-sm text-gray-700 truncate">{entry.name}</span>
+                <span className="flex-1 text-sm text-gray-700 truncate min-w-0">{entry.name}</span>
                 {entry.locked && (
-                  <span className="text-xs text-amber-600 font-medium shrink-0">🔒 Locked</span>
+                  <span className="text-xs text-amber-600 font-medium shrink-0">🔒</span>
                 )}
                 <button onClick={() => moveUp(i)} disabled={i === 0}
-                  className="text-gray-400 hover:text-indigo-600 disabled:opacity-30 px-1" title="Move up">↑</button>
+                  className="text-gray-400 hover:text-indigo-600 disabled:opacity-30 min-w-[36px] min-h-[36px] flex items-center justify-center rounded" title="Move up">↑</button>
                 <button onClick={() => moveDown(i)} disabled={i === files.length - 1}
-                  className="text-gray-400 hover:text-indigo-600 disabled:opacity-30 px-1" title="Move down">↓</button>
+                  className="text-gray-400 hover:text-indigo-600 disabled:opacity-30 min-w-[36px] min-h-[36px] flex items-center justify-center rounded" title="Move down">↓</button>
                 <button onClick={() => remove(i)}
-                  className="text-red-400 hover:text-red-600 text-sm px-1" title="Remove">✕</button>
+                  className="text-red-400 hover:text-red-600 min-w-[36px] min-h-[36px] flex items-center justify-center rounded" title="Remove">✕</button>
               </div>
 
               {entry.locked && (

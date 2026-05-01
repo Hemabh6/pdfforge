@@ -112,9 +112,9 @@ export default function HomePage() {
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-indigo-600 via-purple-600 to-violet-700 text-white py-20 px-4">
+      <section className="bg-gradient-to-br from-indigo-600 via-purple-600 to-violet-700 text-white py-12 sm:py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-5 leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-extrabold mb-4 leading-tight">
             Every PDF Tool You Need,
             <br className="hidden sm:block" /> Right in Your Browser
           </h1>
