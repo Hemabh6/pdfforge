@@ -47,8 +47,9 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-gray-800 mt-10 pt-6 text-center text-xs">
-          © {new Date().getFullYear()} IHavePDF. All rights reserved. Built with privacy in mind.
+        <div className="border-t border-gray-800 mt-10 pt-6 text-center text-xs space-y-1">
+          <div>© {new Date().getFullYear()} IHavePDF. All rights reserved. Built with privacy in mind.</div>
+          <div className="text-gray-500">Made with ❤️ by Aaviskar Softwares</div>
         </div>
       </div>
     </footer>

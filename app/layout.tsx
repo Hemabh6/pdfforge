@@ -45,13 +45,11 @@ export const metadata: Metadata = {
     title: "IHavePDF – Free Online PDF Tools",
     description:
       "9 free, 100% browser-based PDF tools. No uploads. No sign-up. Your files never leave your device.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "IHavePDF – Free PDF Tools" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "IHavePDF – Free Online PDF Tools",
     description: "Merge, split, compress, unlock, protect, rotate, watermark, extract text & more — all local.",
-    images: ["/og-image.png"],
   },
   alternates: { canonical: siteUrl },
 };
