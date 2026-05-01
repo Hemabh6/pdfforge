@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState, DragEvent, ChangeEvent } from "react";
+import { useState, DragEvent, ChangeEvent } from "react";
 
 interface Props {
   onFiles: (files: File[]) => void;
@@ -14,7 +14,6 @@ export default function FileDropZone({
   multiple = false,
   label = "Drop your PDF here or click to browse",
 }: Props) {
-  const inputRef = useRef<HTMLInputElement>(null);
   const [dragging, setDragging] = useState(false);
 
   const handle = (files: FileList | null) => {
@@ -30,29 +29,25 @@ export default function FileDropZone({
   };
 
   return (
-    <div
-      onClick={() => inputRef.current?.click()}
+    <label
       onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
       onDragLeave={() => setDragging(false)}
       onDrop={onDrop}
-      className={`drop-zone rounded-xl p-6 sm:p-10 text-center cursor-pointer select-none ${dragging ? "drag-over" : ""}`}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => e.key === "Enter" && inputRef.current?.click()}
+      className={`drop-zone rounded-xl p-6 sm:p-10 text-center cursor-pointer select-none block ${dragging ? "drag-over" : ""}`}
       aria-label="File upload area"
     >
       <input
-        ref={inputRef}
         type="file"
         accept={accept}
         multiple={multiple}
         className="hidden"
         onChange={(e: ChangeEvent<HTMLInputElement>) => handle(e.target.files)}
-        aria-hidden="true"
       />
       <div className="text-4xl mb-3">📄</div>
       <p className="text-gray-600 font-medium">{label}</p>
-      <p className="text-sm text-gray-400 mt-1">PDF files only</p>
-    </div>
+      <p className="text-sm text-gray-400 mt-1">
+        {multiple ? "PDF files only · select multiple" : "PDF files only"}
+      </p>
+    </label>
   );
 }
